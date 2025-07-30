@@ -1,0 +1,10 @@
+./src/cli.ts
+./src/params.ts
+./src/index.ts
+./src/select.ts
+./index.js
+./test/params.test.ts
+./test/main.test.ts
+./test/select.test.ts
+./cli.js
+./jest.config.js
