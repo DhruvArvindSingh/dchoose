@@ -1,0 +1,73 @@
+Project structure:
+.
+├── LICENSE-APACHE
+├── LICENSE-MIT
+├── README.md
+├── cli.js
+├── codebase_files.txt
+├── index.js
+├── jest.config.js
+├── package-lock.json
+├── package.json
+├── project_context.txt
+├── src
+│   ├── cli.ts
+│   ├── index.ts
+│   ├── params.ts
+│   └── select.ts
+├── test
+│   ├── main.test.ts
+│   ├── params.test.ts
+│   └── select.test.ts
+└── tsconfig.json
+
+3 directories, 18 files
+Package.json content:
+{
+  "name": "dchoose",
+  "description": "a CLI tool for choosing items from lists using drand",
+  "version": "1.0.6",
+  "main": "index.js",
+  "bin": {
+    "dchoose": "cli.js"
+  },
+  "files": [
+    "cli.js",
+    "index.js",
+    "index.d.ts",
+    "LICENSE-APACHE",
+    "LICENSE-MIT",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "npm run check && tsc --emitDeclarationOnly && esbuild ./src/index.ts --bundle --platform=node --target=esnext --outfile=index.js",
+    "build:cli": "esbuild ./src/cli.ts --bundle --platform=node --target=esnext --outfile=cli.js",
+    "check": "tsc --noEmit",
+    "ci": "npm run build && npm run lint && npm run check && npm run test",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "jest ./test/*.test.ts"
+  },
+  "author": "CluEleSsUK",
+  "license": "(Apache-2.0 OR MIT)",
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "@types/node": "^18.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "esbuild": "0.19.5",
+    "eslint": "^8.19.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "5.1.6"
+  },
+  "engines": {
+    "node": ">= 19.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "drand-client": "^1.2.1"
+  }
+}
